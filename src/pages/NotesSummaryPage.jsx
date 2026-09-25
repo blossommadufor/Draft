@@ -103,9 +103,9 @@ export default function NotesSummaryPage() {
     <div className="max-w-5xl mx-auto py-4 space-y-8 animate-fadein">
       
       {/* Top Deck Switcher Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
+          <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold shrink-0">
             <BookOpen className="w-5 h-5" />
           </div>
           <div>
@@ -118,7 +118,7 @@ export default function NotesSummaryPage() {
         <select
           value={selectedSetId}
           onChange={(e) => handleSelectSet(e.target.value)}
-          className="px-4 py-2 text-xs sm:text-sm rounded-xl bg-slate-100 dark:bg-dark-800 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-200 font-medium focus:outline-none focus:border-brand-500"
+          className="w-full sm:w-auto px-4 py-2 text-xs sm:text-sm rounded-xl bg-slate-100 dark:bg-dark-800 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-200 font-medium focus:outline-none focus:border-brand-500"
         >
           {studySets.map((s) => (
             <option key={s.id} value={s.id}>
@@ -129,13 +129,13 @@ export default function NotesSummaryPage() {
       </div>
 
       {/* Set Header Card */}
-      <div className="p-8 rounded-3xl bg-gradient-to-br from-brand-600 via-indigo-600 to-purple-700 text-white shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative overflow-hidden">
-        <div className="relative z-10">
+      <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-brand-600 via-indigo-600 to-purple-700 text-white shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative overflow-hidden">
+        <div className="relative z-10 min-w-0">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-semibold mb-3">
             <GraduationCap className="w-3.5 h-3.5" />
             <span>{currentSet.subject || 'Academic Revision'}</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
+          <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight break-words">
             {currentSet.title}
           </h1>
           <p className="text-xs sm:text-sm text-indigo-100 mt-2">
@@ -144,10 +144,10 @@ export default function NotesSummaryPage() {
         </div>
 
         {/* Quick Launch & Export Actions */}
-        <div className="flex flex-wrap items-center gap-2.5 shrink-0 relative z-10">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-2.5 shrink-0 relative z-10 w-full sm:w-auto">
           <button
             onClick={handleExportMarkdown}
-            className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-xs flex items-center gap-2 backdrop-blur-md border border-white/20 transition-colors"
+            className="w-full sm:w-auto px-4 py-2.5 min-h-[44px] rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-xs flex items-center justify-center gap-2 backdrop-blur-md border border-white/20 transition-colors"
             title="Download formatted markdown notes"
           >
             <Download className="w-4 h-4" />
@@ -156,7 +156,7 @@ export default function NotesSummaryPage() {
 
           <button
             onClick={() => navigate(`/dashboard/flashcards/${currentSet.id}/study`)}
-            className="px-5 py-2.5 rounded-xl bg-white text-brand-700 hover:bg-slate-100 font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-black/10 transition-transform active:scale-95"
+            className="w-full sm:w-auto px-5 py-2.5 min-h-[44px] rounded-xl bg-white text-brand-700 hover:bg-slate-100 font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-black/10 transition-transform active:scale-95"
           >
             <Layers className="w-4 h-4" />
             <span>Practice Cards</span>
@@ -164,7 +164,7 @@ export default function NotesSummaryPage() {
 
           <button
             onClick={() => navigate(`/dashboard/multiple-choice-questions/${currentSet.id}/practice`)}
-            className="px-5 py-2.5 rounded-xl bg-gold-400 hover:bg-gold-300 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-black/10 transition-transform active:scale-95"
+            className="w-full sm:w-auto px-5 py-2.5 min-h-[44px] rounded-xl bg-gold-400 hover:bg-gold-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-black/10 transition-transform active:scale-95"
           >
             <HelpCircle className="w-4 h-4" />
             <span>Start Quiz</span>
@@ -173,7 +173,7 @@ export default function NotesSummaryPage() {
       </div>
 
       {/* Executive Overview */}
-      <div className="p-7 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm">
+      <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm">
         <div className="flex items-center gap-2 mb-3 text-sm font-bold text-slate-900 dark:text-white">
           <BookOpen className="w-5 h-5 text-brand-600 dark:text-brand-400" />
           <span>Executive Overview & Context</span>
@@ -185,7 +185,7 @@ export default function NotesSummaryPage() {
 
       {/* High-Yield Key Points */}
       {keyPoints.length > 0 && (
-        <div className="p-7 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm">
+        <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm">
           <div className="flex items-center gap-2 mb-4 text-sm font-bold text-slate-900 dark:text-white">
             <CheckCircle2 className="w-5 h-5 text-emerald-500" />
             <span>Core Principles & High-Yield Takeaways</span>
@@ -194,12 +194,12 @@ export default function NotesSummaryPage() {
             {keyPoints.map((pt, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 dark:bg-dark-950/70 border border-slate-200 dark:border-white/[0.04]"
+                className="flex items-start gap-3 sm:gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-dark-950/70 border border-slate-200 dark:border-white/[0.04]"
               >
                 <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-mono text-xs font-bold shrink-0 mt-0.5">
                   {idx + 1}
                 </span>
-                <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+                <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium break-words">
                   {pt}
                 </p>
               </div>
@@ -210,7 +210,7 @@ export default function NotesSummaryPage() {
 
       {/* High-Yield Exam Tips */}
       {examTips.length > 0 && (
-        <div className="p-7 rounded-3xl bg-gold-500/[0.06] dark:bg-gold-500/[0.04] border border-gold-500/25 shadow-sm">
+        <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-gold-500/[0.06] dark:bg-gold-500/[0.04] border border-gold-500/25 shadow-sm">
           <div className="flex items-center gap-2 mb-4 text-sm font-bold text-gold-700 dark:text-gold-400">
             <Lightbulb className="w-5 h-5" />
             <span>High-Yield Exam Tips & Common Pitfalls</span>
@@ -219,7 +219,7 @@ export default function NotesSummaryPage() {
             {examTips.map((tip, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-2xl bg-white dark:bg-dark-900/60 border border-gold-500/20 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed"
+                className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-dark-900/60 border border-gold-500/20 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed break-words"
               >
                 <span className="font-bold text-gold-600 dark:text-gold-400 mr-1.5">⭐ Pro Tip {idx + 1}:</span>
                 {tip}
@@ -231,30 +231,30 @@ export default function NotesSummaryPage() {
 
       {/* Revision Cheat Sheet Table */}
       {cheatSheet.length > 0 && (
-        <div className="p-7 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm">
+        <div className="p-4 sm:p-7 rounded-2xl sm:rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
               <FileSpreadsheet className="w-5 h-5 text-indigo-500" />
               <span>Quick Revision Cheat Sheet</span>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 w-full sm:w-auto">
               {/* Search filter */}
-              <div className="relative">
+              <div className="relative w-full sm:w-auto">
                 <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Filter formulas..."
                   value={filterTerm}
                   onChange={(e) => setFilterTerm(e.target.value)}
-                  className="pl-8 pr-3 py-1.5 text-xs rounded-xl bg-slate-100 dark:bg-dark-800 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-200 focus:outline-none"
+                  className="w-full sm:w-auto pl-8 pr-3 py-2 sm:py-1.5 text-base sm:text-xs rounded-xl bg-slate-100 dark:bg-dark-800 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-200 focus:outline-none"
                 />
               </div>
 
               {/* Copy button */}
               <button
                 onClick={handleCopyCheatSheet}
-                className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                className="w-full sm:w-auto px-3 py-2 sm:py-1.5 min-h-[38px] rounded-xl bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
                 title="Copy all formulas and concepts"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
@@ -263,8 +263,8 @@ export default function NotesSummaryPage() {
             </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[500px]">
               <thead>
                 <tr className="border-b border-slate-200 dark:border-white/[0.08] text-slate-500 dark:text-slate-400">
                   <th className="pb-3 px-3 font-semibold">Concept</th>
@@ -275,11 +275,11 @@ export default function NotesSummaryPage() {
               <tbody className="divide-y divide-slate-100 dark:divide-white/[0.04]">
                 {filteredCheatSheet.map((item, idx) => (
                   <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-white/[0.02]">
-                    <td className="py-3 px-3 font-bold text-slate-900 dark:text-white">{item.concept}</td>
-                    <td className="py-3 px-3 font-mono text-brand-600 dark:text-brand-300 bg-brand-50/50 dark:bg-brand-500/5 rounded-lg">
+                    <td className="py-3 px-3 font-bold text-slate-900 dark:text-white break-words">{item.concept}</td>
+                    <td className="py-3 px-3 font-mono text-brand-600 dark:text-brand-300 bg-brand-50/50 dark:bg-brand-500/5 rounded-lg break-words">
                       {item.formula}
                     </td>
-                    <td className="py-3 px-3 text-slate-600 dark:text-slate-400">{item.note}</td>
+                    <td className="py-3 px-3 text-slate-600 dark:text-slate-400 break-words">{item.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -289,22 +289,22 @@ export default function NotesSummaryPage() {
       )}
 
       {/* Practice Callout Box */}
-      <div className="p-8 rounded-3xl bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-white/10 text-center space-y-4">
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white">Test Your Memory in Seconds</h3>
+      <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-100 dark:bg-dark-850 border border-slate-200 dark:border-white/10 text-center space-y-4">
+        <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Test Your Memory in Seconds</h3>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-lg mx-auto">
           Active retrieval practice is 300% more effective than passive re-reading. Switch to flashcard mode or test yourself with timed MCQs.
         </p>
-        <div className="flex flex-wrap justify-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
           <button
             onClick={() => navigate(`/dashboard/flashcards/${currentSet.id}/study`)}
-            className="px-6 py-3 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md transition-all active:scale-95"
+            className="w-full sm:w-auto px-6 py-3 min-h-[44px] rounded-xl sm:rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all active:scale-95"
           >
             <Layers className="w-4 h-4" />
             <span>Practice Flashcards</span>
           </button>
           <button
             onClick={() => navigate(`/dashboard/multiple-choice-questions/${currentSet.id}/practice`)}
-            className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md transition-all active:scale-95"
+            className="w-full sm:w-auto px-6 py-3 min-h-[44px] rounded-xl sm:rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all active:scale-95"
           >
             <HelpCircle className="w-4 h-4" />
             <span>Practice Exam MCQs</span>

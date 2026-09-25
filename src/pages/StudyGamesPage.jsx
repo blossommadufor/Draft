@@ -139,28 +139,28 @@ export default function StudyGamesPage() {
     <div className="max-w-5xl mx-auto py-4 space-y-6 animate-fadein">
       
       {/* Top Header & Controls */}
-      <div className="p-6 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-600 text-white flex items-center justify-center shadow-md">
-            <Gamepad2 className="w-6 h-6" />
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-600 text-white flex items-center justify-center shadow-md shrink-0">
+            <Gamepad2 className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div>
-            <h1 className="text-xl font-extrabold text-slate-900 dark:text-white">Speed Recall Match</h1>
+            <h1 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">Speed Recall Match</h1>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Clear the grid by matching concepts to their definitions as fast as you can!
+              Clear the grid by matching concepts to definitions!
             </p>
           </div>
         </div>
 
         {/* Deck Select & Restart */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
           <select
             value={selectedSetId}
             onChange={(e) => {
               setSelectedSetId(e.target.value)
               selectSet(e.target.value)
             }}
-            className="px-3 py-2 text-xs sm:text-sm rounded-xl bg-slate-100 dark:bg-dark-800 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-200 font-medium focus:outline-none"
+            className="flex-1 sm:flex-none px-3 py-2 text-xs sm:text-sm rounded-xl bg-slate-100 dark:bg-dark-800 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-200 font-medium focus:outline-none min-w-0"
           >
             {studySets.map((s) => (
               <option key={s.id} value={s.id}>
@@ -171,7 +171,7 @@ export default function StudyGamesPage() {
 
           <button
             onClick={initGame}
-            className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-300 transition-colors"
+            className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-300 transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center shrink-0"
             title="Restart Match Game"
           >
             <RotateCcw className="w-4 h-4" />
@@ -180,39 +180,39 @@ export default function StudyGamesPage() {
       </div>
 
       {/* Game Stats Bar */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-2 sm:gap-4">
         {/* Timer */}
-        <div className="p-4 rounded-2xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
-            <Timer className="w-4 h-4" />
+        <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold shrink-0">
+            <Timer className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
-          <div>
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Time</span>
-            <span className="text-xl font-extrabold font-mono text-slate-900 dark:text-white">{elapsedTime.toFixed(1)}s</span>
+          <div className="min-w-0">
+            <span className="text-[9px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider block truncate">Time</span>
+            <span className="text-sm sm:text-xl font-extrabold font-mono text-slate-900 dark:text-white">{elapsedTime.toFixed(1)}s</span>
           </div>
         </div>
 
         {/* Matched Progress */}
-        <div className="p-4 rounded-2xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
-            <CheckCircle2 className="w-4 h-4" />
+        <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold shrink-0">
+            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
-          <div>
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Matched</span>
-            <span className="text-xl font-extrabold font-mono text-slate-900 dark:text-white">
-              {matchedIds.size / 2} / {cards.length / 2}
+          <div className="min-w-0">
+            <span className="text-[9px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider block truncate">Matched</span>
+            <span className="text-sm sm:text-xl font-extrabold font-mono text-slate-900 dark:text-white">
+              {matchedIds.size / 2}/{cards.length / 2}
             </span>
           </div>
         </div>
 
         {/* Best Record */}
-        <div className="p-4 rounded-2xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gold-500/10 text-gold-600 dark:text-gold-400 flex items-center justify-center font-bold">
-            <Trophy className="w-4 h-4" />
+        <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-gold-500/10 text-gold-600 dark:text-gold-400 flex items-center justify-center font-bold shrink-0">
+            <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
-          <div>
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Best Record</span>
-            <span className="text-xl font-extrabold font-mono text-slate-900 dark:text-white">
+          <div className="min-w-0">
+            <span className="text-[9px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider block truncate">Best</span>
+            <span className="text-sm sm:text-xl font-extrabold font-mono text-slate-900 dark:text-white">
               {bestTime > 0 ? `${bestTime.toFixed(1)}s` : '—'}
             </span>
           </div>
@@ -221,7 +221,7 @@ export default function StudyGamesPage() {
 
       {/* Main Game Board */}
       {!gameWon ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4">
           {cards.map((card) => {
             const isMatched = matchedIds.has(card.id)
             const isSelected = selectedCard?.id === card.id
@@ -231,7 +231,7 @@ export default function StudyGamesPage() {
               return (
                 <div
                   key={card.id}
-                  className="h-32 rounded-2xl border border-dashed border-emerald-500/30 bg-emerald-500/[0.04] flex items-center justify-center opacity-40 transition-all pointer-events-none"
+                  className="min-h-[6.5rem] sm:min-h-[8rem] rounded-xl sm:rounded-2xl border border-dashed border-emerald-500/30 bg-emerald-500/[0.04] flex items-center justify-center opacity-40 transition-all pointer-events-none"
                 >
                   <CheckCircle2 className="w-6 h-6 text-emerald-500" />
                 </div>
@@ -242,7 +242,7 @@ export default function StudyGamesPage() {
               <button
                 key={card.id}
                 onClick={() => handleCardClick(card)}
-                className={`h-32 p-4 rounded-2xl border text-left flex flex-col justify-center transition-all duration-200 select-none shadow-sm cursor-pointer ${
+                className={`min-h-[6.5rem] sm:min-h-[8rem] h-auto p-3 sm:p-4 rounded-xl sm:rounded-2xl border text-left flex flex-col justify-center transition-all duration-200 select-none shadow-sm cursor-pointer ${
                   isWrong
                     ? 'bg-rose-500/15 border-rose-500 text-rose-700 dark:text-rose-300 scale-95 animate-shake'
                     : isSelected
@@ -253,7 +253,7 @@ export default function StudyGamesPage() {
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-1">
                   {card.type === 'term' ? 'Concept' : 'Definition'}
                 </span>
-                <p className={`text-xs sm:text-sm font-semibold line-clamp-3 leading-snug ${card.type === 'term' ? 'text-brand-600 dark:text-brand-300' : ''}`}>
+                <p className={`text-xs sm:text-sm font-semibold line-clamp-3 leading-snug break-words ${card.type === 'term' ? 'text-brand-600 dark:text-brand-300' : ''}`}>
                   {card.text}
                 </p>
               </button>
@@ -262,22 +262,22 @@ export default function StudyGamesPage() {
         </div>
       ) : (
         /* Victory Modal Box */
-        <div className="p-12 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-xl text-center space-y-5 animate-fadein">
-          <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-gold-400 to-amber-500 text-white flex items-center justify-center mx-auto shadow-lg shadow-gold-500/30">
-            <Trophy className="w-10 h-10" />
+        <div className="p-6 sm:p-12 rounded-2xl sm:rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-xl text-center space-y-5 animate-fadein">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-gradient-to-tr from-gold-400 to-amber-500 text-white flex items-center justify-center mx-auto shadow-lg shadow-gold-500/30">
+            <Trophy className="w-8 h-8 sm:w-10 sm:h-10" />
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
             Brilliant Match!
           </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto">
             You matched all concepts in <strong className="font-mono text-brand-600 dark:text-brand-400">{elapsedTime.toFixed(1)} seconds</strong>. Active memory pathways reinforced!
           </p>
 
-          <div className="flex flex-wrap justify-center gap-3 pt-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 pt-4">
             <button
               onClick={initGame}
-              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-sm shadow-glow-brand flex items-center gap-2 active:scale-95 transition-all"
+              className="w-full sm:w-auto px-6 py-3 min-h-[44px] rounded-xl sm:rounded-2xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-glow-brand flex items-center justify-center gap-2 active:scale-95 transition-all"
             >
               <RotateCcw className="w-4 h-4" />
               <span>Play Again</span>
@@ -285,7 +285,7 @@ export default function StudyGamesPage() {
 
             <Link
               to={`/dashboard/flashcards/${currentSet.id}/study`}
-              className="px-6 py-3 rounded-2xl bg-slate-100 dark:bg-white/[0.08] hover:bg-slate-200 dark:hover:bg-white/[0.12] text-slate-800 dark:text-slate-100 font-bold text-sm transition-colors flex items-center gap-2"
+              className="w-full sm:w-auto px-6 py-3 min-h-[44px] rounded-xl sm:rounded-2xl bg-slate-100 dark:bg-white/[0.08] hover:bg-slate-200 dark:hover:bg-white/[0.12] text-slate-800 dark:text-slate-100 font-bold text-xs sm:text-sm transition-colors flex items-center justify-center gap-2"
             >
               <span>Practice Flashcards</span>
               <ArrowRight className="w-4 h-4" />

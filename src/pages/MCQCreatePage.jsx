@@ -119,7 +119,7 @@ export default function MCQCreatePage() {
       </div>
 
       {loading ? (
-        <div className="p-12 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/10 shadow-2xl text-center space-y-6">
+        <div className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/10 shadow-2xl text-center space-y-6">
           <div className="w-16 h-16 mx-auto rounded-3xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-500 animate-bounce shadow-glow-gold">
             <Sparkles className="w-8 h-8" />
           </div>
@@ -128,7 +128,7 @@ export default function MCQCreatePage() {
             <span className="text-xs uppercase tracking-widest font-bold text-slate-400 font-mono">
               EXAM SIMULATOR ENGINE
             </span>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-2">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-2">
               Generating High-Yield MCQs...
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -141,7 +141,7 @@ export default function MCQCreatePage() {
           </div>
         </div>
       ) : (
-        <div className="p-8 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm space-y-6">
+        <div className="p-5 sm:p-7 lg:p-8 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-sm space-y-6">
           
           {/* Top Tabs (ExamCrush Screen 1194) */}
           <div className="flex p-1 rounded-2xl bg-slate-100 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] max-w-sm mx-auto">
@@ -184,7 +184,7 @@ export default function MCQCreatePage() {
               placeholder="e.g. Operating Systems Final MCQ Drill"
               value={setName}
               onChange={(e) => setSetName(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-gold-500/50"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-base sm:text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-gold-500/50"
             />
           </div>
 
@@ -248,21 +248,21 @@ export default function MCQCreatePage() {
 
             {tab === 'generate' ? (
               file ? (
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-600 dark:text-gold-400 flex items-center justify-center">
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/10 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                    <div className="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-600 dark:text-gold-400 flex items-center justify-center shrink-0">
                       <File className="w-5 h-5" />
                     </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate max-w-xs">{file.name}</h4>
-                      <p className="text-[11px] text-slate-500 font-mono">
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate">{file.name}</h4>
+                      <p className="text-[11px] text-slate-500 font-mono truncate">
                         {(file.size / 1024).toFixed(1)} KB
                       </p>
                     </div>
                   </div>
                   <button
                     onClick={() => setFile(null)}
-                    className="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 transition-colors"
+                    className="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 transition-colors shrink-0"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -287,7 +287,7 @@ export default function MCQCreatePage() {
                     placeholder="Or paste lecture transcript or key points directly here..."
                     value={rawText}
                     onChange={(e) => setRawText(e.target.value)}
-                    className="w-full p-3 rounded-2xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-gold-500/50"
+                    className="w-full p-3 rounded-2xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-base sm:text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-gold-500/50"
                   />
                 </div>
               )
@@ -297,7 +297,7 @@ export default function MCQCreatePage() {
                 placeholder="Paste or write multiple choice questions directly..."
                 value={rawText}
                 onChange={(e) => setRawText(e.target.value)}
-                className="w-full p-3 rounded-2xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-gold-500/50"
+                className="w-full p-3 rounded-2xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-base sm:text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-gold-500/50"
               />
             )}
           </div>

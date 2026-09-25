@@ -6,9 +6,10 @@ import { StudyProvider } from './context/StudyContext'
 import PublicLayout from './components/common/PublicLayout'
 import DashboardLayout from './components/common/DashboardLayout'
 
-// Public & Auth Pages
+// Public Pages
 import HomePage from './pages/HomePage'
-import AuthPage from './pages/AuthPage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 import OnboardingPage from './pages/OnboardingPage'
 import PricingPage from './pages/PricingPage'
 
@@ -30,17 +31,14 @@ export default function App() {
     <StudyProvider>
       <BrowserRouter>
         <Routes>
-          {/* Public Marketing Route Group */}
+          {/* Public & Auth Route Group */}
           <Route element={<PublicLayout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/onboarding" element={<OnboardingPage />} />
             <Route path="/pricing" element={<PricingPage />} />
           </Route>
-
-          {/* Unified Authentication (Sign In & Create Account handled with Formik & Yup) */}
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/login" element={<AuthPage />} />
-          <Route path="/register" element={<AuthPage />} />
 
           {/* Protected Dashboard & Study Workspace Group */}
           <Route path="/dashboard" element={<DashboardLayout />}>

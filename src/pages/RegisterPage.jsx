@@ -22,15 +22,15 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center p-4 bg-slate-50 dark:bg-dark-950 transition-colors">
-      <div className="w-full max-w-md p-8 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-xl">
+    <div className="min-h-[calc(100dvh-4rem)] flex items-center justify-center p-4 sm:p-6 bg-slate-50 dark:bg-dark-950 transition-colors">
+      <div className="w-full max-w-md p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/[0.08] shadow-xl">
         
         {/* Brand Header */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-5 sm:mb-6">
           <div className="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center text-white mb-3 shadow-lg shadow-brand-500/25">
             <Sparkles className="w-6 h-6" />
           </div>
-          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">
+          <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
             Create Your Account
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -52,7 +52,7 @@ export default function RegisterPage() {
                 placeholder="e.g. Somtochukwu Okafor"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-500/50"
+                className="w-full pl-10 pr-4 py-2.5 text-base sm:text-sm rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-500/50"
               />
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function RegisterPage() {
               <select
                 value={university}
                 onChange={(e) => setUniversity(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-500/50"
+                className="w-full pl-10 pr-4 py-2.5 text-base sm:text-sm rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-500/50"
               >
                 <option value="University of Lagos">University of Lagos (UNILAG)</option>
                 <option value="Covenant University">Covenant University</option>
@@ -91,7 +91,7 @@ export default function RegisterPage() {
                 placeholder="name@institution.edu"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-500/50"
+                className="w-full pl-10 pr-4 py-2.5 text-base sm:text-sm rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-500/50"
               />
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function RegisterPage() {
                 placeholder="Create a strong password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-500/50"
+                className="w-full pl-10 pr-4 py-2.5 text-base sm:text-sm rounded-xl bg-slate-50 dark:bg-dark-950 border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-500/50"
               />
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function RegisterPage() {
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-glow-brand transition-all flex items-center justify-center gap-2 active:scale-95"
+              className="w-full py-3 min-h-[44px] rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-glow-brand transition-all flex items-center justify-center gap-2 active:scale-95"
             >
               <span>Create Free Account</span>
               <ArrowRight className="w-4 h-4" />

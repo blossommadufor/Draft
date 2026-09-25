@@ -18,14 +18,16 @@ export default function MCQReadyPage() {
   }
 
   return (
-    <div className="max-w-xl mx-auto py-12 text-center min-h-[calc(100vh-8rem)] flex flex-col justify-between animate-fadein">
+    <div className="max-w-xl mx-auto px-4 sm:px-0 py-6 sm:py-12 text-center min-h-[calc(100dvh-10rem)] flex flex-col justify-between animate-fadein">
       
       {/* Top Header bar with deck title and Close X */}
-      <div className="flex items-center justify-between text-xs text-slate-500 mb-8">
-        <span className="font-bold text-slate-700 dark:text-slate-300 text-sm">{set?.title}</span>
+      <div className="flex items-center justify-between text-xs text-slate-500 mb-6 sm:mb-8">
+        <span className="font-bold text-slate-700 dark:text-slate-300 text-sm truncate max-w-[220px] sm:max-w-sm text-left">
+          {set?.title}
+        </span>
         <button
           onClick={() => navigate('/dashboard/multiple-choice-questions')}
-          className="p-1.5 rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors"
+          className="p-2 rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center"
         >
           <X className="w-5 h-5" />
         </button>
@@ -60,7 +62,7 @@ export default function MCQReadyPage() {
         {/* Yellow Practice Button */}
         <button
           onClick={() => navigate(`/dashboard/multiple-choice-questions/${set.id}/practice`)}
-          className="w-full py-4 rounded-2xl bg-gold-500 hover:bg-gold-400 text-dark-950 font-extrabold text-sm shadow-glow-gold transition-all active:scale-[0.99] flex items-center justify-center gap-2"
+          className="w-full py-3.5 sm:py-4 min-h-[48px] rounded-2xl bg-gold-500 hover:bg-gold-400 text-dark-950 font-extrabold text-sm shadow-glow-gold transition-all active:scale-[0.99] flex items-center justify-center gap-2"
         >
           <Play className="w-4 h-4 fill-dark-950" />
           <span>Practice</span>
@@ -69,7 +71,7 @@ export default function MCQReadyPage() {
         {/* Share with Friends Button */}
         <button
           onClick={handleShare}
-          className="w-full py-3.5 rounded-2xl bg-slate-100 dark:bg-dark-900 hover:bg-slate-200 dark:hover:bg-dark-800 text-slate-700 dark:text-slate-300 font-bold text-xs border border-slate-200 dark:border-white/10 transition-colors flex items-center justify-center gap-2"
+          className="w-full py-3 sm:py-3.5 min-h-[44px] rounded-2xl bg-slate-100 dark:bg-dark-900 hover:bg-slate-200 dark:hover:bg-dark-800 text-slate-700 dark:text-slate-300 font-bold text-xs border border-slate-200 dark:border-white/10 transition-colors flex items-center justify-center gap-2"
         >
           {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Share2 className="w-4 h-4" />}
           <span>{copied ? 'Link Copied to Clipboard!' : 'Share with friends'}</span>

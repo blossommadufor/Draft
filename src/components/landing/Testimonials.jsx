@@ -1,5 +1,5 @@
 import React from 'react'
-import { Star, CheckCircle2 } from 'lucide-react'
+import { Star, Quote, CheckCircle2 } from 'lucide-react'
 
 export default function Testimonials() {
   const reviews = [
@@ -33,29 +33,29 @@ export default function Testimonials() {
   ]
 
   return (
-    <section id="testimonials" className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
-      <div className="text-center max-w-2xl mx-auto mb-14">
-        <span className="text-xs uppercase tracking-widest font-bold text-emerald-600 dark:text-emerald-400">
+    <section className="py-12 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <span className="text-xs uppercase tracking-widest font-bold text-emerald-500 dark:text-emerald-400">
           Student Success Stories
         </span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">
           Loved by Top-Performing Scholars
         </h2>
-        <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
+        <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
           See how students are saving time, acing semester tests, and building permanent knowledge.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         {reviews.map((rev, idx) => (
           <div
             key={idx}
-            className="p-8 rounded-3xl bg-white dark:bg-dark-850/50 border border-slate-200 dark:border-white/[0.08] shadow-sm hover:border-brand-500/30 dark:hover:border-white/15 transition-all flex flex-col justify-between"
+            className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white dark:bg-dark-850/50 border border-slate-200 dark:border-white/[0.08] hover:border-brand-500/30 dark:hover:border-white/15 transition-all flex flex-col justify-between shadow-sm"
           >
             <div>
-              <div className="flex items-center gap-1 text-gold-500 mb-4">
+              <div className="flex items-center gap-1 text-gold-400 mb-4">
                 {[...Array(rev.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-gold-500 text-gold-500" />
+                  <Star key={i} className="w-4 h-4 fill-gold-400 text-gold-400" />
                 ))}
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed italic mb-6">
@@ -63,16 +63,16 @@ export default function Testimonials() {
               </p>
             </div>
 
-            <div className="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-white/[0.06]">
-              <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-300 font-bold flex items-center justify-center text-xs">
+            <div className="flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-white/[0.06]">
+              <div className="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-600 dark:text-brand-300 font-bold flex items-center justify-center text-xs shrink-0">
                 {rev.avatar}
               </div>
-              <div>
+              <div className="min-w-0">
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1">
-                  {rev.name}
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span className="truncate">{rev.name}</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                 </h4>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                   {rev.school} • {rev.course}
                 </p>
               </div>
@@ -83,3 +83,4 @@ export default function Testimonials() {
     </section>
   )
 }
+

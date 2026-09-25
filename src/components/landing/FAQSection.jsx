@@ -28,12 +28,12 @@ export default function FAQSection() {
   ]
 
   return (
-    <section id="faq" className="py-20 border-t border-slate-200 dark:border-white/[0.08] max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
-      <div className="text-center mb-12">
+    <section className="py-12 sm:py-20 border-t border-slate-200 dark:border-white/[0.08] max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-8 sm:mb-12">
         <span className="text-xs uppercase tracking-widest font-bold text-brand-600 dark:text-brand-400">
           Frequently Asked Questions
         </span>
-        <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mt-2">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-2">
           Everything You Need to Know
         </h2>
       </div>
@@ -44,21 +44,21 @@ export default function FAQSection() {
           return (
             <div
               key={idx}
-              className="rounded-2xl border border-slate-200 dark:border-white/[0.08] bg-white dark:bg-dark-900/60 shadow-sm overflow-hidden transition-colors"
+              className="rounded-2xl border border-slate-200 dark:border-white/[0.08] bg-white dark:bg-dark-900/60 overflow-hidden transition-colors shadow-sm"
             >
               <button
                 onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                className="w-full p-5 text-left flex items-center justify-between gap-4 text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 hover:text-brand-600 dark:hover:text-white transition-colors"
+                className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 text-xs sm:text-base font-semibold text-slate-800 dark:text-slate-100 hover:text-slate-900 dark:hover:text-white min-h-[48px]"
               >
                 <span>{faq.q}</span>
                 <ChevronDown
                   className={`w-4 h-4 text-slate-400 transition-transform duration-200 shrink-0 ${
-                    isOpen ? 'rotate-180 text-brand-600 dark:text-brand-400' : ''
+                    isOpen ? 'rotate-180 text-brand-500' : ''
                   }`}
                 />
               </button>
               {isOpen && (
-                <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-white/[0.04] pt-3">
+                <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-white/[0.04] pt-3">
                   {faq.a}
                 </div>
               )}
@@ -69,3 +69,4 @@ export default function FAQSection() {
     </section>
   )
 }
+

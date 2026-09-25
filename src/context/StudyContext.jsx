@@ -24,21 +24,12 @@ export function StudyProvider({ children }) {
       localStorage.setItem(STORAGE_KEY_THEME, theme)
     } catch (e) {}
     const root = document.documentElement
-    const body = document.body
     if (theme === 'dark') {
       root.classList.add('dark')
       root.classList.remove('light')
-      if (body) {
-        body.classList.add('dark')
-        body.classList.remove('light')
-      }
     } else {
       root.classList.remove('dark')
       root.classList.add('light')
-      if (body) {
-        body.classList.remove('dark')
-        body.classList.add('light')
-      }
     }
   }, [theme])
 

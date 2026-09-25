@@ -163,10 +163,10 @@ export default function MCQPage() {
       </div>
 
       {/* Floating Action Button (ExamCrush Screen 1200) */}
-      <div className="fixed bottom-6 right-6 z-30">
+      <div className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-20">
         <button
           onClick={() => navigate('/dashboard/multiple-choice-questions/create')}
-          className="px-6 py-3.5 rounded-2xl bg-gold-500 hover:bg-gold-400 text-dark-950 font-extrabold text-xs sm:text-sm shadow-glow-gold flex items-center gap-2 transition-all active:scale-95"
+          className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl bg-gold-500 hover:bg-gold-400 text-dark-950 font-extrabold text-xs sm:text-sm shadow-glow-gold flex items-center gap-2 transition-all active:scale-95"
         >
           <Plus className="w-4 h-4 stroke-[3]" />
           <span>+ Create Question</span>

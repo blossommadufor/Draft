@@ -177,7 +177,7 @@ export default function FlashcardsStudyPage() {
   const progressPercent = Math.round(((currentIndex + 1) / queue.length) * 100)
 
   return (
-    <div className="max-w-2xl mx-auto py-4 flex flex-col min-h-[calc(100vh-8rem)] justify-between animate-fadein">
+    <div className="max-w-2xl mx-auto py-2 sm:py-4 flex flex-col min-h-[calc(100dvh-12rem)] md:min-h-[calc(100vh-8rem)] justify-between animate-fadein">
       
       {/* Top Header Bar (ExamCrush Screen 1188 & 1190) */}
       <div>
@@ -185,7 +185,7 @@ export default function FlashcardsStudyPage() {
           {/* Audio TTS Button */}
           <button
             onClick={handleSpeakCard}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl border transition-colors ${
               isSpeaking
                 ? 'bg-brand-500/20 text-brand-600 dark:text-brand-300 border-brand-500/40 animate-pulse'
                 : 'bg-white dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border-slate-200 dark:border-white/[0.08]'
@@ -197,7 +197,7 @@ export default function FlashcardsStudyPage() {
           </button>
 
           {/* Progress Indicator (ExamCrush Screen 1190: 1/106) */}
-          <div className="text-center font-mono font-bold text-slate-700 dark:text-slate-300">
+          <div className="text-center font-mono font-bold text-slate-700 dark:text-slate-300 text-xs sm:text-sm">
             {currentIndex + 1} / {queue.length}
           </div>
 
@@ -212,7 +212,7 @@ export default function FlashcardsStudyPage() {
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full bg-slate-200 dark:bg-dark-900 rounded-full h-1.5 overflow-hidden border border-slate-200 dark:border-white/[0.04] mb-6">
+        <div className="w-full bg-slate-200 dark:bg-dark-900 rounded-full h-1.5 overflow-hidden border border-slate-200 dark:border-white/[0.04] mb-4 sm:mb-6">
           <div
             className="bg-gradient-to-r from-brand-600 to-indigo-400 h-full rounded-full transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
@@ -222,59 +222,59 @@ export default function FlashcardsStudyPage() {
 
       {/* 3D Flip Flashcard (ExamCrush Screen 1189 & 1190) */}
       <div 
-        className="perspective-1000 w-full min-h-[340px] sm:min-h-[380px] my-auto cursor-pointer" 
+        className="perspective-1000 w-full min-h-[290px] sm:min-h-[350px] md:min-h-[380px] my-auto cursor-pointer" 
         onClick={handleFlip}
       >
-        <div className={`flashcard-inner relative w-full h-full min-h-[340px] sm:min-h-[380px] rounded-3xl ${isFlipped ? 'flipped' : ''}`}>
+        <div className={`flashcard-inner relative w-full h-full min-h-[290px] sm:min-h-[350px] md:min-h-[380px] rounded-3xl ${isFlipped ? 'flipped' : ''}`}>
           
           {/* Front Face: Question */}
-          <div className="flashcard-front p-8 sm:p-10 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/10 shadow-xl dark:shadow-2xl flex flex-col justify-between select-none transition-colors">
+          <div className="flashcard-front p-5 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-white/10 shadow-xl dark:shadow-2xl flex flex-col justify-between select-none transition-colors">
             <div className="flex items-center justify-between text-xs">
-              <span className="font-bold uppercase tracking-wider text-[11px] text-brand-600 dark:text-brand-400">
+              <span className="font-bold uppercase tracking-wider text-[11px] text-brand-600 dark:text-brand-400 truncate max-w-[180px]">
                 {currentCard?.tag || 'Question'}
               </span>
-              <span className="text-[11px] font-mono text-slate-400">Press Space or Tap to Flip</span>
+              <span className="text-[10px] sm:text-[11px] font-mono text-slate-400">Tap to Flip</span>
             </div>
 
-            <div className="my-auto text-center py-4">
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-relaxed">
+            <div className="my-auto text-center py-3 sm:py-4">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-relaxed">
                 {currentCard?.term}
               </h2>
             </div>
 
-            <div className="flex items-center justify-between text-xs pt-4 border-t border-slate-100 dark:border-white/[0.06] text-slate-500 dark:text-slate-400">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs pt-3 sm:pt-4 border-t border-slate-100 dark:border-white/[0.06] text-slate-500 dark:text-slate-400">
               {currentCard?.hint ? (
                 <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
-                  <Lightbulb className="w-3.5 h-3.5 text-gold-500" />
+                  <Lightbulb className="w-3.5 h-3.5 text-gold-500 shrink-0" />
                   <span className="truncate max-w-xs">{currentCard.hint}</span>
                 </span>
               ) : (
                 <span />
               )}
-              <span className="text-brand-600 dark:text-brand-400 font-semibold hover:underline">
+              <span className="text-brand-600 dark:text-brand-400 font-semibold hover:underline text-[11px] sm:text-xs">
                 Tap to reveal answer →
               </span>
             </div>
           </div>
 
           {/* Back Face: Answer */}
-          <div className="flashcard-back p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-gradient-to-b dark:from-dark-850 dark:to-dark-900 border border-brand-500/30 shadow-glow-brand flex flex-col justify-between select-none transition-colors">
+          <div className="flashcard-back p-5 sm:p-8 md:p-10 rounded-3xl bg-slate-50 dark:bg-gradient-to-b dark:from-dark-850 dark:to-dark-900 border border-brand-500/30 shadow-glow-brand flex flex-col justify-between select-none transition-colors">
             <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
               <span className="font-bold uppercase tracking-wider text-[11px] text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                 <Check className="w-3.5 h-3.5" /> Answer & Definition
               </span>
-              <span className="text-[11px] font-mono text-slate-400">Tap to Flip Back</span>
+              <span className="text-[10px] sm:text-[11px] font-mono text-slate-400">Tap to Flip Back</span>
             </div>
 
-            <div className="my-auto py-4">
-              <p className="text-base sm:text-lg text-slate-800 dark:text-slate-100 leading-relaxed font-medium">
+            <div className="my-auto py-3 sm:py-4 overflow-y-auto max-h-[180px] sm:max-h-none">
+              <p className="text-sm sm:text-base md:text-lg text-slate-800 dark:text-slate-100 leading-relaxed font-medium">
                 {currentCard?.definition}
               </p>
             </div>
 
-            <div className="pt-4 border-t border-slate-200 dark:border-white/[0.06] flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
-              <span className="italic">Ready to grade your recall?</span>
-              <span className="font-mono text-[11px] text-slate-400">Keys: [1] or [2]</span>
+            <div className="pt-3 sm:pt-4 border-t border-slate-200 dark:border-white/[0.06] flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <span className="italic text-[11px] sm:text-xs">Ready to grade your recall?</span>
+              <span className="font-mono text-[10px] sm:text-[11px] text-slate-400">Keys: [1] or [2]</span>
             </div>
           </div>
 
@@ -282,12 +282,12 @@ export default function FlashcardsStudyPage() {
       </div>
 
       {/* Bottom Controls (ExamCrush Screen 1190) */}
-      <div className="mt-8 pt-4 border-t border-slate-200 dark:border-white/[0.08] flex items-center justify-between gap-4">
+      <div className="mt-6 sm:mt-8 pt-3 sm:pt-4 border-t border-slate-200 dark:border-white/[0.08] flex items-center justify-between gap-2.5 sm:gap-4">
         
         {/* Still Learning [Shortcut key : 1] */}
         <button
           onClick={handleStillLearning}
-          className="flex-1 py-3.5 px-4 rounded-2xl bg-rose-50 dark:bg-rose-500/10 hover:bg-rose-100 dark:hover:bg-rose-500/20 border border-rose-200 dark:border-rose-500/30 text-rose-600 dark:text-rose-400 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-sm"
+          className="flex-1 min-h-[44px] py-2.5 sm:py-3.5 px-3 sm:px-4 rounded-2xl bg-rose-50 dark:bg-rose-500/10 hover:bg-rose-100 dark:hover:bg-rose-500/20 border border-rose-200 dark:border-rose-500/30 text-rose-600 dark:text-rose-400 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 transition-all active:scale-95 shadow-sm"
         >
           <X className="w-4 h-4 stroke-[2.5]" />
           <span>Still learning</span>
@@ -299,7 +299,7 @@ export default function FlashcardsStudyPage() {
         {/* Flip Button */}
         <button
           onClick={handleFlip}
-          className="p-3.5 rounded-2xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 transition-colors"
+          className="min-h-[44px] min-w-[44px] p-2.5 sm:p-3.5 rounded-2xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 transition-colors flex items-center justify-center shrink-0"
           title="Flip Card [Spacebar]"
         >
           <RotateCw className="w-4 h-4" />
@@ -308,7 +308,7 @@ export default function FlashcardsStudyPage() {
         {/* Know [Shortcut key : 2] */}
         <button
           onClick={handleKnow}
-          className="flex-1 py-3.5 px-4 rounded-2xl bg-emerald-50 dark:bg-emerald-500/15 hover:bg-emerald-100 dark:hover:bg-emerald-500/25 border border-emerald-200 dark:border-emerald-500/35 text-emerald-600 dark:text-emerald-400 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-sm"
+          className="flex-1 min-h-[44px] py-2.5 sm:py-3.5 px-3 sm:px-4 rounded-2xl bg-emerald-50 dark:bg-emerald-500/15 hover:bg-emerald-100 dark:hover:bg-emerald-500/25 border border-emerald-200 dark:border-emerald-500/35 text-emerald-600 dark:text-emerald-400 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 transition-all active:scale-95 shadow-sm"
         >
           <Check className="w-4 h-4 stroke-[2.5]" />
           <span>Know</span>
