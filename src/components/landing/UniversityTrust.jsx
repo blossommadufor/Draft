@@ -1,0 +1,66 @@
+import React from 'react'
+import { Award, Users, BookOpenCheck, ThumbsUp } from 'lucide-react'
+
+export default function UniversityTrust() {
+  const stats = [
+    { label: 'Hours Saved on Studying', value: '1,200,000+', icon: Award },
+    { label: 'Active University Students', value: '65,000+', icon: Users },
+    { label: 'Report Better Memory Recall', value: '92%', icon: BookOpenCheck },
+    { label: 'Exam Confidence Rating', value: '96%', icon: ThumbsUp },
+  ]
+
+  const universities = [
+    'University of Lagos',
+    'Covenant University',
+    'University of Nigeria, Nsukka',
+    'Afe Babalola University',
+    'Babcock University',
+    'University of Ibadan'
+  ]
+
+  return (
+    <section className="py-16 border-y border-white/[0.06] bg-gradient-to-b from-dark-900/60 to-dark-950">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* University Logos / Badges */}
+        <div className="text-center mb-10">
+          <p className="text-xs uppercase tracking-widest font-bold text-slate-400 mb-6">
+            Empowering students across premier universities
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
+            {universities.map((uni, idx) => (
+              <div
+                key={idx}
+                className="px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs font-semibold text-slate-300 hover:text-white hover:border-brand-500/30 transition-colors"
+              >
+                {uni}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Big Numbers Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-white/[0.06]">
+          {stats.map((s, idx) => {
+            const Icon = s.icon
+            return (
+              <div key={idx} className="text-center p-4">
+                <div className="w-10 h-10 mx-auto rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-3">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-mono">
+                  {s.value}
+                </div>
+                <div className="mt-1 text-xs sm:text-sm text-slate-400">
+                  {s.label}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
