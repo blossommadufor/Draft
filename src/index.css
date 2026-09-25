@@ -11,11 +11,13 @@
         overflow-x: hidden;
         transition: background-color 0.2s ease, color 0.2s ease;
     }
-    html.dark body, body.dark {
+    html.dark body,
+    body.dark {
         background-color: #07090E;
         color: #F1F5F9;
     }
-    html:not(.dark) body, body.light {
+    html:not(.dark) body,
+    body.light {
         background-color: #F8FAFC;
         color: #0F172A;
     }
