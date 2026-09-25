@@ -1,5 +1,5 @@
 import React from 'react'
-import { Star, Quote, CheckCircle2 } from 'lucide-react'
+import { Star, CheckCircle2 } from 'lucide-react'
 
 export default function Testimonials() {
   const reviews = [
@@ -33,15 +33,15 @@ export default function Testimonials() {
   ]
 
   return (
-    <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
       <div className="text-center max-w-2xl mx-auto mb-14">
-        <span className="text-xs uppercase tracking-widest font-bold text-emerald-400">
+        <span className="text-xs uppercase tracking-widest font-bold text-emerald-600 dark:text-emerald-400">
           Student Success Stories
         </span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">
           Loved by Top-Performing Scholars
         </h2>
-        <p className="mt-3 text-sm text-slate-400">
+        <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
           See how students are saving time, acing semester tests, and building permanent knowledge.
         </p>
       </div>
@@ -50,29 +50,29 @@ export default function Testimonials() {
         {reviews.map((rev, idx) => (
           <div
             key={idx}
-            className="p-8 rounded-3xl bg-dark-850/50 border border-white/[0.08] hover:border-white/15 transition-all flex flex-col justify-between"
+            className="p-8 rounded-3xl bg-white dark:bg-dark-850/50 border border-slate-200 dark:border-white/[0.08] shadow-sm hover:border-brand-500/30 dark:hover:border-white/15 transition-all flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center gap-1 text-gold-400 mb-4">
+              <div className="flex items-center gap-1 text-gold-500 mb-4">
                 {[...Array(rev.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-gold-400 text-gold-400" />
+                  <Star key={i} className="w-4 h-4 fill-gold-500 text-gold-500" />
                 ))}
               </div>
-              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic mb-6">
+              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed italic mb-6">
                 "{rev.comment}"
               </p>
             </div>
 
-            <div className="flex items-center gap-3 pt-4 border-t border-white/[0.06]">
-              <div className="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-300 font-bold flex items-center justify-center text-xs">
+            <div className="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-white/[0.06]">
+              <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-300 font-bold flex items-center justify-center text-xs">
                 {rev.avatar}
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white flex items-center gap-1">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1">
                   {rev.name}
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                 </h4>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
                   {rev.school} • {rev.course}
                 </p>
               </div>
@@ -83,4 +83,3 @@ export default function Testimonials() {
     </section>
   )
 }
-

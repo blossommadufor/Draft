@@ -6,7 +6,7 @@ export default function FeatureShowcase() {
   const navigate = useNavigate()
 
   return (
-    <section className="py-24 space-y-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-24 space-y-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
       
       {/* Feature 1: Flashcards Engine */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

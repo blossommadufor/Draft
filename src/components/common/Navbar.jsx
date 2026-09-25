@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useStudy } from '../../context/StudyContext'
-import { Sparkles, Flame, Volume2, VolumeX, Search, Plus, Sun, Moon, LogIn, UserCheck } from 'lucide-react'
+import { Sparkles, Flame, Volume2, VolumeX, Search, Plus, LogIn, UserCheck } from 'lucide-react'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
   const location = useLocation()
@@ -84,14 +85,8 @@ export default function Navbar() {
         {/* Right Actions: Theme Toggle, Sound, Login/Register or Profile */}
         <div className="flex items-center gap-3">
           
-          {/* Light / Dark Mode Toggle */}
-          <button
-            onClick={toggleTheme}
-            title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            className="p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors"
-          >
-            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
-          </button>
+          {/* Light / Dark Mode Toggle with explicit label */}
+          <ThemeToggle />
 
           {/* Sound Toggle */}
           <button

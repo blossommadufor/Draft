@@ -18,7 +18,7 @@ export default function PricingSection() {
   }
 
   return (
-    <section className="py-20 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50/50 dark:bg-dark-900/40">
+    <section id="pricing" className="py-20 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50/50 dark:bg-dark-900/40 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

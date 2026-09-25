@@ -19,19 +19,19 @@ export default function UniversityTrust() {
   ]
 
   return (
-    <section className="py-16 border-y border-white/[0.06] bg-gradient-to-b from-dark-900/60 to-dark-950">
+    <section className="py-16 border-y border-slate-200 dark:border-white/[0.06] bg-slate-50 dark:bg-gradient-to-b dark:from-dark-900/60 dark:to-dark-950 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* University Logos / Badges */}
         <div className="text-center mb-10">
-          <p className="text-xs uppercase tracking-widest font-bold text-slate-400 mb-6">
+          <p className="text-xs uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400 mb-6">
             Empowering students across premier universities
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
             {universities.map((uni, idx) => (
               <div
                 key={idx}
-                className="px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs font-semibold text-slate-300 hover:text-white hover:border-brand-500/30 transition-colors"
+                className="px-4 py-2 rounded-xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] shadow-sm text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-white hover:border-brand-500/30 transition-colors"
               >
                 {uni}
               </div>
@@ -40,18 +40,18 @@ export default function UniversityTrust() {
         </div>
 
         {/* Big Numbers Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-white/[0.06]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-slate-200 dark:border-white/[0.06]">
           {stats.map((s, idx) => {
             const Icon = s.icon
             return (
               <div key={idx} className="text-center p-4">
-                <div className="w-10 h-10 mx-auto rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-3">
+                <div className="w-10 h-10 mx-auto rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-3">
                   <Icon className="w-5 h-5" />
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-mono">
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight font-mono">
                   {s.value}
                 </div>
-                <div className="mt-1 text-xs sm:text-sm text-slate-400">
+                <div className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                   {s.label}
                 </div>
               </div>
@@ -63,4 +63,3 @@ export default function UniversityTrust() {
     </section>
   )
 }
-
